@@ -2,10 +2,11 @@ class Transaction
 
   def initialize(credit)
     @credit = credit
+    @date = Time.now.strftime('%d/%m/%Y')
   end
 
   def date
-    Time.now.strftime('%d/%m/%Y')
+    @date
   end
 
   def credit
