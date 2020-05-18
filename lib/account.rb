@@ -8,4 +8,8 @@ class Account
     "£#{format("%<balance>.2f", balance: @balance)}"
   end
 
+  def deposit(value)
+    @balance += value
+  end
+
 end
