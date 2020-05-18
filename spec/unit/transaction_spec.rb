@@ -40,5 +40,10 @@ describe Transaction do
       expect(transaction.credit).to eq nil
       expect(transaction.debit).to eq 5.00
     end
+
+    it 'decreases the balance' do
+      transaction = Transaction.new(balance: 100.00, debit: 5.00)
+      expect(transaction.balance).to eq 95.00
+    end
   end
 end
