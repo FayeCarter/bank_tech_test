@@ -9,6 +9,8 @@ class Transaction
     @balance = calculate(balance)
   end
 
+  private
+
   def calculate(balance)
     if @credit
       balance += credit

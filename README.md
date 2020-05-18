@@ -38,7 +38,12 @@ date || credit || debit || balance
 - [X] Account has initial balance
 - [X] Deposit adds to balance
 - [X] Deposit increases transaction history
-- [ ] 
+- [ ] Deposit is a transaction
+  - [X] transactions have date
+  - [X] transactions can have credit
+  - [X] transactions can have debit
+  - [X] transactions can have balance
+  - [ ] 
 
 
 ### User Story 2
