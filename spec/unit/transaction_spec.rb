@@ -5,7 +5,7 @@ describe Transaction do
   today = Time.now.strftime('%d/%m/%Y')
 
   it 'has a date' do
-    transaction = Transaction.new(1)
+    transaction = Transaction.new()
     expect(transaction.date).to eq today
   end
 
@@ -16,8 +16,9 @@ describe Transaction do
     end
 
     it 'transaction can be initialized with credit' do
-      transaction = Transaction.new(5.00)
+      transaction = Transaction.new(credit: 5.00)
       expect(transaction.credit).to eq 5.00
+      expect(transaction.debit).to eq nil
     end
   end
 
@@ -28,7 +29,8 @@ describe Transaction do
     end
 
     it 'transaction can be initialized with debit' do
-      transaction = Transaction.new(5.00)
+      transaction = Transaction.new(debit: 5.00)
+      expect(transaction.credit).to eq nil
       expect(transaction.debit).to eq 5.00
     end
   end
