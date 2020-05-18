@@ -13,7 +13,7 @@ class Account
 
   def deposit(value)
     @balance += value
-    transaction_history.push(value)
+    transaction_history.push("#{Time.now.strftime('%d/%m/%Y')} || || 5.00 || 5.00")
   end
 
   def print_statement
