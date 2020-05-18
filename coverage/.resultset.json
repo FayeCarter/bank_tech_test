@@ -152,6 +152,30 @@
           null
         ]
       },
+      "/Users/FayeCarter/Documents/Makers_Academy/Week_10/bank_tech_test/spec/unit/statement_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/FayeCarter/Documents/Makers_Academy/Week_10/bank_tech_test/lib/statement.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/FayeCarter/Documents/Makers_Academy/Week_10/bank_tech_test/spec/unit/transaction_spec.rb": {
         "lines": [
           1,
@@ -206,6 +230,6 @@
         ]
       }
     },
-    "timestamp": 1589818005
+    "timestamp": 1589818485
   }
 }

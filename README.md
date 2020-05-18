@@ -47,14 +47,16 @@ date || credit || debit || balance
 
 
 ### User Story 2
-- [ ] Complete
+- [X] Complete
 ```bash
   As a customer,
   So that I can access my money,
   I want to be able to withdraw money from my account
 ```
 **Steps taken:**
-- [ ] Withdraw method created that reduces balance
+- [X] Withdraw method created that reduces balance
+- [X] Withdraw creates a transaction
+- [ ] 
 
 
 ### User Story 3
@@ -65,6 +67,7 @@ date || credit || debit || balance
   I want to be able to print a statement.
 ```
 **Steps taken:**
+- [ ] Create Statement class with a header
 
 ### Modelling
 
