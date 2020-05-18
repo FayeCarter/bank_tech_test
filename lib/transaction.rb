@@ -8,4 +8,8 @@ class Transaction
     Time.now.strftime('%d/%m/%Y')
   end
 
+  def credit
+    @credit
+  end
+
 end
