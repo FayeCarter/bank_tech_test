@@ -1,7 +1,10 @@
 class Account
 
+  attr_reader :transaction_history
+
   def initialize
     @balance = 0.00
+    @transaction_history = []
   end
 
   def display_balance
@@ -10,6 +13,7 @@ class Account
 
   def deposit(value)
     @balance += value
+    transaction_history.push(value)
   end
 
 end

@@ -11,4 +11,10 @@ describe Account do
     account.deposit(5.00)
     expect(account.display_balance).to eq "£5.00"
   end
+
+  it 'making a deposit increases account transactions' do
+    account = Account.new
+    account.deposit(5.00)
+    expect(account.transaction_history.length).to eq 1
+  end
 end
