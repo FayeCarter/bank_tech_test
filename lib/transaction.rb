@@ -1,8 +1,9 @@
 class Transaction
 
-  def initialize(credit = nil)
-    @credit = credit
+  def initialize(credit = nil, debit = nil)
     @date = Time.now.strftime('%d/%m/%Y')
+    @credit = credit
+    @debit = debit
   end
 
   def date
@@ -10,6 +11,10 @@ class Transaction
   end
 
   def credit
+    @credit
+  end
+
+  def debit
     @credit
   end
 

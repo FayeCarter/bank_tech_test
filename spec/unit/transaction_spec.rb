@@ -20,4 +20,16 @@ describe Transaction do
       expect(transaction.credit).to eq 5.00
     end
   end
+
+  describe "#debit" do 
+    it 'debit value is empty by default' do
+      transaction = Transaction.new()
+      expect(transaction.debit).to eq nil
+    end
+
+    # it 'can be initialized with credit' do
+    #   transaction = Transaction.new(5.00)
+    #   expect(transaction.credit).to eq 5.00
+    # end
+  end
 end
