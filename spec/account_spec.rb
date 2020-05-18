@@ -1,4 +1,5 @@
 require 'account'
+require 'transaction'
 
 describe Account do
   subject(:account) { described_class.new } 
@@ -19,9 +20,9 @@ describe Account do
       expect(account.transaction_history.length).to eq 1
     end
 
-    it 'adds todays date to the transaction history' do
+    it 'creates a transaction' do
       account.deposit(5.00)
-      expect(account.transaction_history).to eq ["#{today} || || 5.00 || 5.00"]
+      expect(account.transaction_history[0]).to be_a Transaction
     end
   end
 

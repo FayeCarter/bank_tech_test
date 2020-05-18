@@ -1,3 +1,5 @@
+require_relative 'transaction'
+
 class Account
 
   attr_reader :transaction_history
@@ -13,7 +15,8 @@ class Account
 
   def deposit(value)
     @balance += value
-    transaction_history.push("#{Time.now.strftime('%d/%m/%Y')} || || 5.00 || 5.00")
+    transaction = Transaction.new(balance: @balance, debit: value)
+    transaction_history.push(transaction)
   end
 
   def print_statement
