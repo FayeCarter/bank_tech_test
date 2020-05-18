@@ -15,7 +15,7 @@ describe Transaction do
       expect(transaction.credit).to eq nil
     end
 
-    it 'can be initialized with credit' do
+    it 'transaction can be initialized with credit' do
       transaction = Transaction.new(5.00)
       expect(transaction.credit).to eq 5.00
     end
@@ -27,9 +27,9 @@ describe Transaction do
       expect(transaction.debit).to eq nil
     end
 
-    # it 'can be initialized with credit' do
-    #   transaction = Transaction.new(5.00)
-    #   expect(transaction.credit).to eq 5.00
-    # end
+    it 'transaction can be initialized with debit' do
+      transaction = Transaction.new(5.00)
+      expect(transaction.debit).to eq 5.00
+    end
   end
 end
