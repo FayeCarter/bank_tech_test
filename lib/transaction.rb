@@ -13,9 +13,9 @@ class Transaction
 
   def calculate(balance)
     if @credit
-      balance += credit
+      balance + credit
     elsif @debit
-      balance -= debit
+      balance - debit
     else
       balance
     end
