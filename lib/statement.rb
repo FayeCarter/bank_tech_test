@@ -1,7 +1,11 @@
 class Statement
 
+  def initialize
+    @header = "date || credit || debit || balance"
+  end
+
   def print
-    "date || credit || debit || balance"
+    @header
   end
 
 end
