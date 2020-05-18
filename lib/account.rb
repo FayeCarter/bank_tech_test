@@ -1,7 +1,11 @@
 class Account
 
+  def initialize
+    @balance = 0.00
+  end
+
   def display_balance
-    "£0.00"
+    "£#{format("%<balance>.2f", balance: @balance)}"
   end
 
 end
