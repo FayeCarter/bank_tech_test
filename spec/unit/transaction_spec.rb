@@ -9,6 +9,11 @@ describe Transaction do
     expect(transaction.date).to eq today
   end
 
+  it 'takes a balance in creation' do
+    transaction = Transaction.new(balance: 100.00)
+    expect(transaction.balance).to eq 100.00
+  end
+
   describe "#credit" do 
     it 'credit value is empty by default' do
       transaction = Transaction.new()
