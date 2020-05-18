@@ -24,3 +24,28 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+## Process
+
+- [ ] User Story 1
+  
+```bash
+  As a customer,
+  So I can save my money,
+  I want to be able to deposit money into my account.
+```
+
+- [ ] User Story 2
+  
+```bash
+  As a customer,
+  So that I can access my money,
+  I want to be able to withdraw money from my account
+```
+
+- [ ] User Story 3
+  
+```bash
+  As a customer,
+  So that I can manage my account,
+  I want to be able to print a statement.
+```
