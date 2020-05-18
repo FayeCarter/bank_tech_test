@@ -1,6 +1,6 @@
 class Transaction
 
-  def initialize(credit)
+  def initialize(credit = nil)
     @credit = credit
     @date = Time.now.strftime('%d/%m/%Y')
   end
