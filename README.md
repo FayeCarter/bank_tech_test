@@ -45,8 +45,8 @@ date || credit || debit || balance
 - [ ] Complete
 ```bash
   As a customer,
-  So that I can access my money,
-  I want to be able to withdraw money from my account
+  So that I can manage my account,
+  I want to be able to print a statement.
 ```
 **Steps taken:**
 
@@ -54,8 +54,8 @@ date || credit || debit || balance
 - [ ] Complete
 ```bash
   As a customer,
-  So that I can manage my account,
-  I want to be able to print a statement.
+  So that I can access my money,
+  I want to be able to withdraw money from my account
 ```
 **Steps taken:**
 
