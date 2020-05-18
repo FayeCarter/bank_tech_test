@@ -26,31 +26,38 @@ date || credit || debit || balance
 ```
 ## Process
 
-### User stories
 
-- [ ] User Story 1
-  
+### User Story 1
+- [X] Complete
 ```bash
   As a customer,
   So I can save my money,
   I want to be able to deposit money into my account.
 ```
+**Steps taken:**
+- [X] Account has initial balance
+- [X] Deposit adds to balance
+- [X] Deposit increases transaction history
+- [ ] 
 
-- [ ] User Story 2
-  
+
+### User Story 2
+- [ ] Complete
 ```bash
   As a customer,
   So that I can access my money,
   I want to be able to withdraw money from my account
 ```
+**Steps taken:**
 
-- [ ] User Story 3
-  
+### User Story 3
+- [ ] Complete
 ```bash
   As a customer,
   So that I can manage my account,
   I want to be able to print a statement.
 ```
+**Steps taken:**
 
 ### Modelling
 
