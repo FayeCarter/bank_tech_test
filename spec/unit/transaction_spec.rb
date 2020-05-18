@@ -9,7 +9,7 @@ describe Transaction do
     expect(transaction.date).to eq today
   end
 
-  it 'takes a balance in creation' do
+  it 'has a balance' do
     expect(transaction.balance).to eq 100.00
   end
 
@@ -22,6 +22,11 @@ describe Transaction do
       transaction = Transaction.new(balance: 100.00, credit: 5.00)
       expect(transaction.credit).to eq 5.00
       expect(transaction.debit).to eq nil
+    end
+
+    it 'increases the balance' do
+      transaction = Transaction.new(balance: 100.00, credit: 5.00)
+      expect(transaction.balance).to eq 105.00
     end
   end
 

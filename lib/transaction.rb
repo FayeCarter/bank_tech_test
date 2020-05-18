@@ -6,7 +6,15 @@ class Transaction
     @date = Time.now.strftime('%d/%m/%Y')
     @credit = credit
     @debit = debit
-    @balance = balance
+    @balance = calculate(balance)
+  end
+
+  def calculate(balance)
+    if @credit
+      balance += credit
+    else
+      balance
+    end
   end
 
 end
