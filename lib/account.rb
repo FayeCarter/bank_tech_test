@@ -21,6 +21,8 @@ class Account
 
   def withdraw(value)
     @balance -= value
+    transaction = Transaction.new(balance: @balance, credit: value)
+    transaction_history.push(transaction)
   end
 
   def print_statement

@@ -32,6 +32,18 @@ describe Account do
       account.withdraw(5.00)
       expect(account.display_balance).to eq "£20.00"
     end
+
+    it 'increases account transaction_history' do
+      account.deposit(25.00)
+      account.withdraw(5.00)
+      expect(account.transaction_history.length).to eq 2
+    end
+
+    it 'creates a transaction' do
+      account.deposit(25.00)
+      account.withdraw(5.00)
+      expect(account.transaction_history[1]).to be_a Transaction
+    end
   end
 
   describe "#print_statement" do
