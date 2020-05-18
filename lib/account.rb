@@ -19,6 +19,10 @@ class Account
     transaction_history.push(transaction)
   end
 
+  def withdraw(value)
+    @balance -= value
+  end
+
   def print_statement
     "date || credit || debit || balance"
   end

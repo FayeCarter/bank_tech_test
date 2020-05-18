@@ -26,6 +26,14 @@ describe Account do
     end
   end
 
+  describe "#withdraw" do
+    it 'decreases the balance' do
+      account.deposit(25.00)
+      account.withdraw(5.00)
+      expect(account.display_balance).to eq "£20.00"
+    end
+  end
+
   describe "#print_statement" do
     it 'returns an empty statement for a new account' do
       expect(account.print_statement).to eq "date || credit || debit || balance"

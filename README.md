@@ -38,7 +38,7 @@ date || credit || debit || balance
 - [X] Account has initial balance
 - [X] Deposit adds to balance
 - [X] Deposit increases transaction history
-- [ ] Deposit is a transaction
+- [X] Deposit is a transaction
   - [X] transactions have date
   - [X] transactions can have credit
   - [X] transactions can have debit
@@ -50,19 +50,19 @@ date || credit || debit || balance
 - [ ] Complete
 ```bash
   As a customer,
-  So that I can manage my account,
-  I want to be able to print a statement.
+  So that I can access my money,
+  I want to be able to withdraw money from my account
 ```
 **Steps taken:**
-- [ ] 
+- [ ] Withdraw method created that reduces balance
 
 
 ### User Story 3
 - [ ] Complete
 ```bash
   As a customer,
-  So that I can access my money,
-  I want to be able to withdraw money from my account
+  So that I can manage my account,
+  I want to be able to print a statement.
 ```
 **Steps taken:**
 
