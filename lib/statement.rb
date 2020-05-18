@@ -2,19 +2,23 @@ class Statement
 
   def initialize
     @header = "date || credit || debit || balance"
+    @transactions = []
   end
 
   def format(transactions)
-    display = []
     transactions.each { |record|
       transaction = "#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
-      display.push(transaction)
+      @transactions.push(transaction)
     }
-    display
+    @transactions
   end
 
   def print
-    @header
+    statement = "#{@header}"
+    @transactions.each { |transaction|
+      statement += "\n#{transaction}"
+    }
+    statement
   end
 
 end
