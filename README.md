@@ -26,6 +26,8 @@ date || credit || debit || balance
 ```
 ## Process
 
+### User stories
+
 - [ ] User Story 1
   
 ```bash
@@ -49,3 +51,7 @@ date || credit || debit || balance
   So that I can manage my account,
   I want to be able to print a statement.
 ```
+
+### Modelling
+
+![mermaid](https://mermaid-js.github.io/mermaid-live-editor/#/view/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cdEFjY291bnQgLS0-IFRyYW5zYWN0aW9uXG5cdEFjY291bnQgLS0-IFN0YXRlbWVudFxuXG5cdGNsYXNzIEFjY291bnR7XG4gICAgK2JhbGFuY2VcbiAgICArdHJhbnNhY3Rpb25faGlzdG9yeVxuICAgICtkZXBvc2l0KClcbiAgICArd2l0aGRyYXcoKVxuICAgICtwcmludF9zdGF0ZW1lbnQoKVxuICB9XG5cdGNsYXNzIFRyYW5zYWN0aW9ue1xuXHRcdCtEYXRlXG4gICAgK2NyZWRpdFxuICAgICtkZWJpdFxuXHR9XG5cdGNsYXNzIFN0YXRlbWVudHtcblx0XHQrZGlzcGxheVxuICAgICtwcmludCgpXG5cdH1cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoibmV1dHJhbCJ9fQ)
