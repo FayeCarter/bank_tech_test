@@ -49,6 +49,8 @@ date || credit || debit || balance
   I want to be able to print a statement.
 ```
 **Steps taken:**
+- [ ] 
+
 
 ### User Story 3
 - [ ] Complete

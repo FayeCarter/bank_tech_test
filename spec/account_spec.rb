@@ -18,4 +18,10 @@ describe Account do
       expect(account.transaction_history.length).to eq 1
     end
   end
+
+  describe "#print_statement" do
+    it 'returns an empty statement for a new account' do
+      expect(account.print_statement).to eq "date || credit || debit || balance"
+    end
+  end
 end
