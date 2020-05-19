@@ -64,12 +64,16 @@ describe Account do
 
   describe "#print_statement" do
     it 'returns an empty statement for a new account' do
-      expect(account.print_statement).to eq "date || credit || debit || balance"
+      expect { account.print_statement }.to output(
+        "date || credit || debit || balance"
+      ).to_stdout
     end
 
     it 'returns credit history when deposit is made' do
       account.deposit(5.00)
-      expect(account.print_statement).to eq "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
+      expect { account.print_statement }.to output(
+        "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
+      ).to_stdout
     end
   end
 end

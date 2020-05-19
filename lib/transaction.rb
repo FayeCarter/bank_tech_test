@@ -12,7 +12,7 @@ class Transaction
   private
 
   def float(value)
-    return value == nil ? value : format("%<value>.2f", value: value)
+    return value.nil? ? value : format("%<value>.2f", value: value)
   end
 
   def calculate(balance, credit, debit)
