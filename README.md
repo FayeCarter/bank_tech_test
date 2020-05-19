@@ -67,6 +67,16 @@ date || credit || debit || balance
   - [X] transactions can have debit
   - [X] transactions can have balance
 
+**Approach**
+
+I created a repository and installed bundler and RSpec. I updated the Gemfile and the spec_helper to include SimpleCov to help me check my tests coverage. I also added Ruboocop so that I could ensure that my code was properly linted.
+
+My first step was to create and Account class with an initial balance of 0. I initially accessed this by creating a method to display the balance. This was later removed as it became unnecessary.
+
+I created a deposit method that would take a value and increase the account balance. When a deposit is made it is stored in the account transaction history.
+
+I chose to refactor this logic into a transaction method that could handle deposits and withdrawals.
+
 
 ### User Story 2
 - [X] Complete
@@ -79,6 +89,12 @@ date || credit || debit || balance
 - [X] Withdraw method created that reduces balance
 - [X] Withdraw creates a transaction
 
+**Approach**
+
+As I already had created a transaction class, I updated it to include an option for credit.
+If a deposit transaction was made, credit would be nil by default. 
+If a withdrawal transaction was made, debit would be nil by default. 
+
 ### User Story 3
 - [X] Complete
 ```bash
@@ -90,6 +106,13 @@ date || credit || debit || balance
 - [X] Create Statement class with a header
 - [X] Transactions should be added to account in reverse chronological order
 - [X] Statement should take transaction history
+
+**Approach**
+
+I chose to update deposit and withdraw methods to add transaction to the beginning of the transaction array so the the statement would receive transactions in reverse chronological order.
+
+I initially began to implement the statement to return a string of the statement. when I tested this in irb I noticed that didn't output correctly. I refactored this logic to allow the statement to print the string onto separate lines.
+
 
 ### Modelling
 
