@@ -1,7 +1,7 @@
 class Statement
 
   def initialize
-    @header = "date || credit || debit || balance"
+    @statement = "date || credit || debit || balance"
     @transactions = []
   end
 
@@ -14,11 +14,10 @@ class Statement
   end
 
   def print
-    statement = "#{@header}"
     @transactions.each { |transaction|
-      statement += "\n#{transaction}"
+      @statement += "\n#{transaction}"
     }
-    statement
+    @statement
   end
 
 end
