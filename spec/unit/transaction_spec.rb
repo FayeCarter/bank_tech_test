@@ -20,7 +20,7 @@ describe Transaction do
 
     it 'transaction can be initialized with credit' do
       transaction = Transaction.new(balance: 100.00, credit: 5.00)
-      expect(transaction.credit).to eq 5.00
+      expect(transaction.credit).to eq format("%<balance>.2f", balance: 5)
       expect(transaction.debit).to eq nil
       expect(transaction.balance).to eq 105.00
     end
@@ -28,6 +28,11 @@ describe Transaction do
     it 'increases the balance' do
       transaction = Transaction.new(balance: 100.00, credit: 5.00)
       expect(transaction.balance).to eq 105.00
+    end
+
+    it 'credit value is a float with 2 decimal places' do
+      transaction = Transaction.new(balance: 100.00, credit: 5)
+      expect(transaction.credit).to eq format("%<balance>.2f", balance: 5)
     end
   end
 

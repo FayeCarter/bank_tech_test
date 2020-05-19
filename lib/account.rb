@@ -1,4 +1,5 @@
 require_relative 'transaction'
+require_relative 'statement'
 
 class Account
 
@@ -26,7 +27,9 @@ class Account
   end
 
   def print_statement
-    "date || credit || debit || balance"
+    statement = Statement.new
+    statement.format(@transaction_history)
+    statement.print
   end
 
 end
