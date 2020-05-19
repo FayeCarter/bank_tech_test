@@ -14,8 +14,8 @@ class Account
     "£#{format("%<balance>.2f", balance: @balance)}"
   end
 
-  def deposit(value)
-    transaction = Transaction.new(balance: @balance, credit: value)
+  def deposit(value, date = Time.now.strftime('%d/%m/%Y'))
+    transaction = Transaction.new(balance: @balance, credit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance += value
   end

@@ -32,6 +32,12 @@ describe Account do
       account.deposit(5.00)
       expect(account.transaction_history[0]).to be_a Transaction
     end
+
+    it 'can be passed with a date' do
+      transaction = Transaction.new(balance: 100.00, date: "07/04/1990")
+      account.deposit(5.00, "07/04/1990")
+      expect(account.transaction_history[0].date).to eq "07/04/1990"
+    end
   end
 
   describe "#withdraw" do

@@ -9,7 +9,7 @@ describe Transaction do
     expect(transaction.date).to eq today
   end
 
-  it 'cane be passed a date' do
+  it 'can be passed a date' do
     transaction = Transaction.new(balance: 100.00, date: "07/04/1990")
     expect(transaction.date).to eq "07/04/1990"
   end
