@@ -59,7 +59,7 @@ describe Account do
 
     it 'returns credit history when deposit is made' do
       account.deposit(5.00)
-      expect(account.print_statement).to eq "date || credit || debit || balance\n#{today} || 5.00  || || 5.00"
+      expect(account.print_statement).to eq "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
     end
   end
 end
