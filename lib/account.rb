@@ -3,15 +3,11 @@ require_relative 'statement'
 
 class Account
 
-  attr_reader :transaction_history
+  attr_reader :balance, :transaction_history
 
   def initialize
     @balance = 0.00
     @transaction_history = []
-  end
-
-  def display_balance
-    "£#{format("%<balance>.2f", balance: @balance)}"
   end
 
   def deposit(value, date = Time.now.strftime('%d/%m/%Y'))

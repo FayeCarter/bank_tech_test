@@ -5,22 +5,22 @@ describe Account do
   subject(:account) { described_class.new } 
   today = Time.now.strftime('%d/%m/%Y')
 
-  it 'Can be created with initial balance of £0.00' do
-    expect(account.display_balance).to eq "£0.00"
+  it 'can be created with initial balance of £0.00' do
+    expect(account.balance).to eq 0
   end
 
   it 'transactions should be added in reverse chronological order' do
     account.deposit(5.00)
-    expect(account.display_balance).to eq "£5.00"
+    expect(account.balance).to eq 5
     account.withdraw(5.00)
-    expect(account.display_balance).to eq "£0.00"
+    expect(account.balance).to eq 0
     expect(account.transaction_history[0].balance).to eq format("%<balance>.2f", balance: 0)
   end
 
   describe "#deposit" do
     it 'increases the balance' do
       account.deposit(5.00)
-      expect(account.display_balance).to eq "£5.00"
+      expect(account.balance).to eq 5
     end
 
     it 'increases account transaction_history' do
@@ -43,7 +43,7 @@ describe Account do
     it 'decreases the balance' do
       account.deposit(25.00)
       account.withdraw(5.00)
-      expect(account.display_balance).to eq "£20.00"
+      expect(account.balance).to eq 20
     end
 
     it 'increases account transaction_history' do
