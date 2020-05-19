@@ -20,8 +20,8 @@ class Account
     @balance += value
   end
 
-  def withdraw(value)
-    transaction = Transaction.new(balance: @balance, debit: value)
+  def withdraw(value, date = Time.now.strftime('%d/%m/%Y'))
+    transaction = Transaction.new(balance: @balance, debit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance -= value
   end
