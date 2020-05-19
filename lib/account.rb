@@ -14,15 +14,15 @@ class Account
   end
 
   def deposit(value)
+    transaction = Transaction.new(balance: @balance, credit: value)
+    transaction_history.insert(0, transaction)
     @balance += value
-    transaction = Transaction.new(balance: @balance, debit: value)
-    transaction_history.push(transaction)
   end
 
   def withdraw(value)
+    transaction = Transaction.new(balance: @balance, debit: value)
+    transaction_history.insert(0, transaction)
     @balance -= value
-    transaction = Transaction.new(balance: @balance, credit: value)
-    transaction_history.push(transaction)
   end
 
   def print_statement
