@@ -26,7 +26,7 @@ The aim of the project is to produce the best code that I can without a strict t
   irb
   require './lib/account'
 ```
-
+![use](docs/output.png)
 ## Requirements
 
 - [X] You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
