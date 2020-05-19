@@ -67,7 +67,10 @@ date || credit || debit || balance
   I want to be able to print a statement.
 ```
 **Steps taken:**
-- [ ] Create Statement class with a header
+- [X] Create Statement class with a header
+- [ ] Transactions should be added to account in reverse chronological order
+- [ ] Statement should take transaction history
+- [ ] 
 
 ### Modelling
 

@@ -9,6 +9,11 @@ describe Account do
     expect(account.display_balance).to eq "£0.00"
   end
 
+  it 'transactions should be added in reverse chronological order' do
+    account.deposit(5.00)
+    account.withdraw(5.00)
+  end
+
   describe "#deposit" do
     it 'increases the balance' do
       account.deposit(5.00)
@@ -34,15 +39,13 @@ describe Account do
     end
 
     it 'increases account transaction_history' do
-      account.deposit(25.00)
       account.withdraw(5.00)
-      expect(account.transaction_history.length).to eq 2
+      expect(account.transaction_history.length).to eq 1
     end
 
     it 'creates a transaction' do
-      account.deposit(25.00)
       account.withdraw(5.00)
-      expect(account.transaction_history[1]).to be_a Transaction
+      expect(account.transaction_history[0]).to be_a Transaction
     end
   end
 
