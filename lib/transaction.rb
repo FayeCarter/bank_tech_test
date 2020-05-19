@@ -2,8 +2,8 @@ class Transaction
 
   attr_reader :date, :debit, :credit, :balance
 
-  def initialize(credit: nil, debit: nil, balance:)
-    @date = Time.now.strftime('%d/%m/%Y')
+  def initialize(credit: nil, debit: nil, balance:, date: Time.now.strftime('%d/%m/%Y'))
+    @date = date
     @credit = float(credit)
     @debit = float(debit)
     @balance = calculate(balance, credit, debit)

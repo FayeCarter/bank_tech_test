@@ -69,7 +69,7 @@ date || credit || debit || balance
 **Steps taken:**
 - [X] Create Statement class with a header
 - [X] Transactions should be added to account in reverse chronological order
-- [ ] Statement should take transaction history
+- [X] Statement should take transaction history
 - [ ] 
 
 ### Modelling

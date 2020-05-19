@@ -5,8 +5,13 @@ describe Transaction do
   today = Time.now.strftime('%d/%m/%Y')
   subject(:transaction) { described_class.new(balance: 100.00) } 
 
-  it 'has a date' do
+  it 'has a todays date by default' do
     expect(transaction.date).to eq today
+  end
+
+  it 'cane be passed a date' do
+    transaction = Transaction.new(balance: 100.00, date: "07/04/1990")
+    expect(transaction.date).to eq "07/04/1990"
   end
 
   it 'balance value is a float with 2 decimal places' do
