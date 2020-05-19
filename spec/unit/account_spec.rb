@@ -14,7 +14,7 @@ describe Account do
     expect(account.display_balance).to eq "£5.00"
     account.withdraw(5.00)
     expect(account.display_balance).to eq "£0.00"
-    expect(account.transaction_history[0].balance).to eq 0
+    expect(account.transaction_history[0].balance).to eq format("%<balance>.2f", balance: 0)
   end
 
   describe "#deposit" do

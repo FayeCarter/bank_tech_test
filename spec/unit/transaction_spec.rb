@@ -9,8 +9,8 @@ describe Transaction do
     expect(transaction.date).to eq today
   end
 
-  it 'has a balance' do
-    expect(transaction.balance).to eq 100.00
+  it 'balance value is a float with 2 decimal places' do
+    expect(transaction.balance).to eq format("%<balance>.2f", balance: 100)
   end
 
   describe "#credit" do 
@@ -22,12 +22,12 @@ describe Transaction do
       transaction = Transaction.new(balance: 100.00, credit: 5.00)
       expect(transaction.credit).to eq format("%<balance>.2f", balance: 5)
       expect(transaction.debit).to eq nil
-      expect(transaction.balance).to eq 105.00
+      expect(transaction.balance).to eq format("%<balance>.2f", balance: 105)
     end
 
     it 'increases the balance' do
       transaction = Transaction.new(balance: 100.00, credit: 5.00)
-      expect(transaction.balance).to eq 105.00
+      expect(transaction.balance).to eq format("%<balance>.2f", balance: 105)
     end
 
     it 'credit value is a float with 2 decimal places' do
@@ -45,12 +45,12 @@ describe Transaction do
       transaction = Transaction.new(balance: 100.00, debit: 5.00)
       expect(transaction.credit).to eq nil
       expect(transaction.debit).to  eq format("%<debit>.2f", debit: 5)
-      expect(transaction.balance).to eq 95.00
+      expect(transaction.balance).to eq format("%<balance>.2f", balance: 95)
     end
 
     it 'decreases the balance' do
       transaction = Transaction.new(balance: 100.00, debit: 5.00)
-      expect(transaction.balance).to eq 95.00
+      expect(transaction.balance).to eq format("%<balance>.2f", balance: 95)
     end
 
     it 'debit value is a float with 2 decimal places' do

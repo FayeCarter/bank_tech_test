@@ -17,11 +17,11 @@ class Transaction
 
   def calculate(balance, credit, debit)
     if credit
-      balance + credit
+      float(balance + credit)
     elsif debit
-      balance - debit
+      float(balance - debit)
     else
-      balance
+      float(balance)
     end
   end
 
