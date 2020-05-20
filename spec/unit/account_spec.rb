@@ -8,11 +8,11 @@ describe Account do
   end
 
   describe "#deposit" do
-    it 'depositing 5 returns a balance of 5' do
+    it 'depositing 5 returns a balance of 5.00' do
       expect(subject.deposit(5)).to eq "Balance: 5.00"
     end
 
-    it 'increases the transaction_history' do
+    it 'adds to the transaction_history' do
       subject.deposit(5)
       expect(subject.transaction_history).to_not be_empty
     end
@@ -24,7 +24,7 @@ describe Account do
   end
 
   describe "#withdraw" do
-    it 'withdrawing 5 returns a negative balance' do
+    it 'withdrawing 5 returns a negative balance of -5.00' do
       expect(subject.withdraw(5)).to eq "Balance: -5.00"
     end
 
@@ -41,16 +41,15 @@ describe Account do
 
   describe "#print_statement" do
     it 'returns an empty statement for a new account' do
-      expect { subject.print_statement }.to output(
-        "date || credit || debit || balance"
-      ).to_stdout
+      statement = "date || credit || debit || balance"
+
+      expect { subject.print_statement }.to output(statement).to_stdout
     end
 
     it 'returns credit history when deposit is made' do
+      statement = "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
       subject.deposit(5)
-      expect { subject.print_statement }.to output(
-        "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
-      ).to_stdout
+      expect { subject.print_statement }.to output(statement).to_stdout
     end
   end
 end
