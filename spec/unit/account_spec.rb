@@ -17,10 +17,11 @@ describe Account do
     end
 
     it 'uses the transaction class' do
-      transaction = double(:transaction, new: "new transaction")
+      transaction = double(:transaction)
+      allow(transaction).to receive(:new).with(balance: 5, credit: 5, debit: nil)
       account = described_class.new(transaction: transaction)
 
-      expect(transaction).to receive(:new).with(balance: 5, credit: 5, debit: nil)
+      expect(transaction).to receive(:new)
       account.deposit(5)
     end
   end
@@ -37,9 +38,10 @@ describe Account do
 
     it 'uses the transaction class' do
       transaction = double(:transaction, new: "new transaction")
+      allow(transaction).to receive(:new).with(balance: -5, credit: nil, debit: 5)
       account = described_class.new(transaction: transaction)
 
-      expect(transaction).to receive(:new).with(balance: -5, credit: nil, debit: 5)
+      expect(transaction).to receive(:new)
       account.withdraw(5)
     end
   end
