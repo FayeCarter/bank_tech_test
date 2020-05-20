@@ -1,7 +1,6 @@
 require 'account'
 
 describe Account do
-  today = Time.now.strftime('%d/%m/%Y')
 
   it 'account has a balance of 0 when created' do
     expect(subject.balance).to eq 0
@@ -47,9 +46,12 @@ describe Account do
     end
 
     it 'returns credit history when deposit is made' do
-      statement = "date || credit || debit || balance\n#{today} || 5.00 || || 5.00 "
-      subject.deposit(5)
-      expect { subject.print_statement }.to output(statement).to_stdout
+      account_statement = double(:statement)
+      statement_class = double(:statement_class, new: account_statement)
+      account = described_class.new(statement: statement_class)
+      
+      expect(account_statement).to receive(:print_statement)
+      account.print_statement
     end
   end
 end
