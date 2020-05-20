@@ -6,7 +6,7 @@ class Account
   attr_reader :balance, :transaction_history
 
   def initialize
-    @balance = 0.00
+    @balance = 0
     @transaction_history = []
   end
 
@@ -14,6 +14,7 @@ class Account
     transaction = Transaction.new(balance: @balance, credit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance += value
+    "Balance: #{format('%<balance>.2f', balance: @balance)}"
   end
 
   def withdraw(value, date = Time.now.strftime('%d/%m/%Y'))
