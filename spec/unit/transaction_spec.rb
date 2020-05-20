@@ -15,7 +15,7 @@ describe Transaction do
     expect(transaction.credit).to include "5.00"
   end
 
-  it 'creates a debit' do
+  it 'creates a debit value' do
     transaction = Transaction.new(balance: 100, debit: 5)
     expect(transaction.debit).to include "5.00"
   end

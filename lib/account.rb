@@ -2,7 +2,6 @@ require_relative 'transaction'
 require_relative 'statement'
 
 class Account
-
   attr_reader :balance, :transaction_history
 
   def initialize(transaction: Transaction, statement: Statement)
@@ -39,5 +38,4 @@ class Account
     transaction = @transaction.new(balance: @balance, debit: debit, credit: credit)
     transaction_history.insert(0, transaction)
   end
-
 end
