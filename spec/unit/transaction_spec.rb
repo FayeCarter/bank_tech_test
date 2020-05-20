@@ -12,16 +12,16 @@ describe Transaction do
 
   it 'creates a credit value' do
     transaction = Transaction.new(balance: 100, credit: 5)
-    expect(transaction.credit).to eq "5.00"
+    expect(transaction.credit).to include "5.00"
   end
 
   it 'creates a debit' do
     transaction = Transaction.new(balance: 100, debit: 5)
-    expect(transaction.debit).to eq "5.00"
+    expect(transaction.debit).to include "5.00"
   end
 
   it 'creates a balance value' do
     transaction = Transaction.new(balance: 100)
-    expect(transaction.balance).to eq "100.00"
+    expect(transaction.balance).to include "100.00"
   end
 end

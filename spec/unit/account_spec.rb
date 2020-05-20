@@ -47,7 +47,7 @@ describe Account do
     end
 
     it 'returns credit history when deposit is made' do
-      statement = "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
+      statement = "date || credit || debit || balance\n#{today} || 5.00 || || 5.00 "
       subject.deposit(5)
       expect { subject.print_statement }.to output(statement).to_stdout
     end

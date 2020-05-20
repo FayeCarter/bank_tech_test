@@ -4,7 +4,8 @@ class Statement
     if transactions
       print "date || credit || debit || balance"
       transactions.each { |record|
-        print "\n#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
+        print "\n#{record.date} || #{record.credit}|| #{record.debit}|| #{record.balance}"
+        
       }
     else
       "date || credit || debit || balance"
