@@ -28,19 +28,19 @@ describe Transaction do
   describe "#credit" do 
 
     it 'transaction can be initialized with credit' do
-      transaction = Transaction.new(balance: 100, credit:5)
+      transaction = Transaction.new(balance: 100, credit: 5)
       expect(transaction.credit).to eq format("%<balance>.2f", balance: 5)
       expect(transaction.debit).to eq nil
       expect(transaction.balance).to eq format("%<balance>.2f", balance: 105)
     end
 
     it 'increases the balance' do
-      transaction = Transaction.new(balance: 100, credit:5)
+      transaction = Transaction.new(balance: 100, credit: 5)
       expect(transaction.balance).to eq format("%<balance>.2f", balance: 105)
     end
 
     it 'credit value is a float with 2 decimal places' do
-      transaction = Transaction.new(balance: 100, credit:5)
+      transaction = Transaction.new(balance: 100, credit: 5)
       expect(transaction.credit).to eq format("%<credit>.2f", credit: 5)
     end
   end
@@ -48,20 +48,20 @@ describe Transaction do
   describe "#debit" do 
 
     it 'transaction can be initialized with debit' do
-      transaction = Transaction.new(balance: 100, debit:5)
+      transaction = Transaction.new(balance: 100, debit: 5)
       expect(transaction.credit).to eq nil
       expect(transaction.debit).to  eq format("%<debit>.2f", debit: 5)
       expect(transaction.balance).to eq format("%<balance>.2f", balance: 95)
     end
 
     it 'decreases the balance' do
-      transaction = Transaction.new(balance: 100, debit:5)
+      transaction = Transaction.new(balance: 100, debit: 5)
 
       expect(transaction.balance).to eq format("%<balance>.2f", balance: 95)
     end
 
     it 'debit value is a float with 2 decimal places' do
-      transaction = Transaction.new(balance: 100, debit:5)
+      transaction = Transaction.new(balance: 100, debit: 5)
 
       expect(transaction.debit).to eq format("%<debit>.2f", debit: 5)
     end
