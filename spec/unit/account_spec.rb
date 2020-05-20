@@ -32,10 +32,6 @@ describe Account do
       expect(account.transaction_history[0]).to be_a Transaction
     end
 
-    it 'can be passed with a date' do
-      account.deposit(5.00, "07/04/1990")
-      expect(account.transaction_history[0].date).to eq "07/04/1990"
-    end
   end
 
   describe "#withdraw" do
@@ -53,10 +49,6 @@ describe Account do
       expect(account.transaction_history[0]).to be_a Transaction
     end
 
-    it 'can be passed with a date' do
-      account.withdraw(5, "07/04/1990")
-      expect(account.transaction_history[0].date).to eq "07/04/1990"
-    end
   end
 
   describe "#print_statement" do

@@ -10,15 +10,15 @@ class Account
     @transaction_history = []
   end
 
-  def deposit(value, date = Time.now.strftime('%d/%m/%Y'))
-    transaction = Transaction.new(balance: @balance, credit: value, date: date)
+  def deposit(value)
+    transaction = Transaction.new(balance: @balance, credit: value)
     transaction_history.insert(0, transaction)
     @balance += value
     show_balance(@balance)
   end
 
-  def withdraw(value, date = Time.now.strftime('%d/%m/%Y'))
-    transaction = Transaction.new(balance: @balance, debit: value, date: date)
+  def withdraw(value)
+    transaction = Transaction.new(balance: @balance, debit: value)
     transaction_history.insert(0, transaction)
     @balance -= value
     show_balance(@balance)
