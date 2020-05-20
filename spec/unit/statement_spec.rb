@@ -4,12 +4,11 @@ describe Statement do
 
   it 'prints column header' do
     empty_statement = "date || credit || debit || balance"
-    expect(subject.print_statement()).to eq empty_statement
+    expect { subject.print_statement() }.to output(empty_statement).to_stdout
   end
 
   it 'When given a transaction, it prints it underneath the header' do
     statement = "date || credit || debit || balance\n18/05/2020 || 100.00 || || 200.00 "
-
     transaction = double(:transaction)
     allow(transaction).to receive_messages(date: '18/05/2020', credit: '100.00 ', debit: nil, balance: '200.00 ')
 

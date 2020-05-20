@@ -25,7 +25,7 @@ class Account
   end
 
   def print_statement
-    @statement.print_statement @transaction_history
+    @statement.print_statement(@transaction_history)
   end
 
   private
