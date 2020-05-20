@@ -11,16 +11,16 @@ class Account
   end
 
   def deposit(value)
+    @balance += value
     transaction = Transaction.new(balance: @balance, credit: value)
     transaction_history.insert(0, transaction)
-    @balance += value
     show_balance(@balance)
   end
 
   def withdraw(value)
+    @balance -= value
     transaction = Transaction.new(balance: @balance, debit: value)
     transaction_history.insert(0, transaction)
-    @balance -= value
     show_balance(@balance)
   end
 
