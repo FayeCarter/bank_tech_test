@@ -39,13 +39,7 @@ describe Account do
   end
 
   describe "#print_statement" do
-    it 'returns an empty statement for a new account' do
-      statement = "date || credit || debit || balance"
-
-      expect { subject.print_statement }.to output(statement).to_stdout
-    end
-
-    it 'returns credit history when deposit is made' do
+    it 'to use statement class' do
       account_statement = double(:statement)
       statement_class = double(:statement_class, new: account_statement)
       account = described_class.new(statement: statement_class)
