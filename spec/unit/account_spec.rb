@@ -7,29 +7,15 @@ describe Account do
     expect(subject.balance).to eq 0
   end
 
-  it 'transactions should be added in reverse chronological order' do
-
-    subject.deposit(5)
-    subject.withdraw(5)
-
-    expect(subject.transaction_history[0].balance).to eq format("%<balance>.2f", balance: 0)
-  end
-
   describe "#deposit" do
-    it 'returns the increased balance' do
+    it 'depositing 5 returns a balance of 5' do
       expect(subject.deposit(5)).to eq "Balance: 5.00"
     end
 
-    it 'increases account transaction_history' do
+    it 'depositing twice ruturns a balance of both deposits' do
       subject.deposit(5)
-      expect(subject.transaction_history.length).to eq 1
+      expect(subject.deposit(25)).to eq "Balance: 30.00"
     end
-
-    it 'creates a transaction' do
-      subject.deposit(5)
-      expect(subject.transaction_history[0]).to be_a Transaction
-    end
-
   end
 
   describe "#withdraw" do
