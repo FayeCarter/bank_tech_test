@@ -41,7 +41,7 @@ describe Transaction do
 
     it 'transaction can be initialized with debit' do
       transaction = Transaction.new(balance: 100, debit: 5)
-      expect(transaction.debit).to  eq format("%<debit>.2f", debit: 5)
+      expect(transaction.debit).to eq format("%<debit>.2f", debit: 5)
     end
 
     it 'debit value is a float with 2 decimal places' do

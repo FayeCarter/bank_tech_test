@@ -12,15 +12,13 @@ class Account
 
   def deposit(value)
     @balance += value
-    transaction = handle_transaction(credit: value)
-    transaction_history.insert(0, transaction)
+    handle_transaction(credit: value)
     show_balance(@balance)
   end
 
   def withdraw(value)
     @balance -= value
-    transaction = handle_transaction(debit: value)
-    transaction_history.insert(0, transaction)
+    handle_transaction(debit: value)    
     show_balance(@balance)
   end
 
@@ -37,7 +35,8 @@ class Account
   end
 
   def handle_transaction(debit: nil, credit: nil)
-    Transaction.new(balance: @balance, debit: debit)
+    transaction = Transaction.new(balance: @balance, debit: debit, credit: credit)
+    transaction_history.insert(0, transaction)
   end
 
 end
