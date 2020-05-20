@@ -5,9 +5,10 @@ class Account
 
   attr_reader :balance, :transaction_history
 
-  def initialize
+  def initialize(transaction = Transaction)
     @balance = 0
     @transaction_history = []
+    @transaction = transaction
   end
 
   def deposit(value)
@@ -35,7 +36,7 @@ class Account
   end
 
   def handle_transaction(debit: nil, credit: nil)
-    transaction = Transaction.new(balance: @balance, debit: debit, credit: credit)
+    transaction = @transaction.new(balance: @balance, debit: debit, credit: credit)
     transaction_history.insert(0, transaction)
   end
 
