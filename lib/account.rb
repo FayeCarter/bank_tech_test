@@ -21,6 +21,7 @@ class Account
     transaction = Transaction.new(balance: @balance, debit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance -= value
+    "Balance: #{format('%<balance>.2f', balance: @balance)}"
   end
 
   def print_statement

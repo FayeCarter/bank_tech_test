@@ -24,7 +24,7 @@ describe Account do
     end
 
     it 'returns the balance' do
-      expect(account.deposit(5.00)).to eq "Balance: 5.00"
+      expect(account.deposit(5)).to eq "Balance: 5.00"
     end
 
     it 'increases account transaction_history' do
@@ -48,6 +48,10 @@ describe Account do
       account.deposit(25)
       account.withdraw(5)
       expect(account.balance).to eq 20
+    end
+
+    it 'returns the balance' do
+      expect(account.withdraw(5)).to eq "Balance: -5.00"
     end
 
     it 'increases account transaction_history' do
