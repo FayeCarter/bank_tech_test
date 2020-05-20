@@ -1,17 +1,14 @@
 class Statement
 
-  attr_reader :printout
-
-  def initialize
-    @printout = "date || credit || debit || balance"
-  end
-
-  def format(transactions)
-    transactions.each { |record|
-      transaction = "#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
-      printout << "\n#{transaction}"
-    }
-    print printout
+  def print_statement(transactions = nil)
+    if transactions
+      print "date || credit || debit || balance"
+      transactions.each { |record|
+        print "\n#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
+      }
+    else
+      "date || credit || debit || balance"
+    end
   end
 
 end
