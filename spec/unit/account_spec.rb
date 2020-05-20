@@ -32,9 +32,12 @@ describe Account do
       expect(subject.transaction_history).to_not be_empty
     end
 
-    it 'creates a transaction' do
-      subject.withdraw(5)
-      expect(subject.transaction_history[0]).to be_a Transaction
+    it 'uses the transaction class' do
+      transaction = double(:transaction, new: "new transaction")
+      account = described_class.new(transaction: transaction)
+
+      expect(transaction).to receive(:new).with(balance: -5, credit: nil, debit: 5)
+      account.withdraw(5)
     end
   end
 
