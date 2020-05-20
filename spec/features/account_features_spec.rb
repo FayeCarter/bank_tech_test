@@ -4,17 +4,17 @@ describe 'Account creationa nd function test' do
   
   it 'Account can print a statement of transactions in reverse chronological order' do
     account = Account.new
-    
-    date_one = Time.new(2012, 1, 10)
-    allow(Time).to receive(:now).and_return(date_one)
+
+    date = Time.new(2012, 1, 10)
+    allow(Time).to receive(:now).and_return(date)
     account.deposit(1000)
 
-    date_two = Time.new(2012, 1, 13)
-    allow(Time).to receive(:now).and_return(date_two)
+    date = Time.new(2012, 1, 13)
+    allow(Time).to receive(:now).and_return(date)
     account.deposit(2000)
 
-    date_three = Time.new(2012, 1, 14)
-    allow(Time).to receive(:now).and_return(date_three)
+    date = Time.new(2012, 1, 14)
+    allow(Time).to receive(:now).and_return(date)
     account.withdraw(500)
 
 
