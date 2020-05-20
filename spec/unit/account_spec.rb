@@ -1,5 +1,4 @@
 require 'account'
-require 'transaction'
 
 describe Account do
   today = Time.now.strftime('%d/%m/%Y')
