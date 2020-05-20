@@ -14,19 +14,26 @@ class Account
     transaction = Transaction.new(balance: @balance, credit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance += value
-    "Balance: #{format('%<balance>.2f', balance: @balance)}"
+    show_balance(@balance)
   end
 
   def withdraw(value, date = Time.now.strftime('%d/%m/%Y'))
     transaction = Transaction.new(balance: @balance, debit: value, date: date)
     transaction_history.insert(0, transaction)
     @balance -= value
-    "Balance: #{format('%<balance>.2f', balance: @balance)}"
+    show_balance(@balance)
   end
 
   def print_statement
     statement = Statement.new
     statement.format(@transaction_history)
+  end
+
+  private
+
+  def show_balance(value)
+    new_balance = format('%<value>.2f', value: value)
+    "Balance: #{new_balance}"
   end
 
 end
