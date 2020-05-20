@@ -7,13 +7,27 @@ describe Statement do
     expect(subject.print_statement()).to eq empty_statement
   end
 
-  it 'prints a transaction on a row underneath the header' do
+  it 'When given a transaction, it prints it underneath the header' do
     statement = "date || credit || debit || balance\n18/05/2020 || 100.00 ||  || 200.00"
 
     transaction = double(:transaction)
     allow(transaction).to receive_messages(date: '18/05/2020', credit: '100.00', debit: nil, balance: '200.00')
 
     expect { subject.print_statement([transaction]) }.to output(statement).to_stdout
+  end
+
+  it 'When given two transactions, it prints each of them on a new line underneath the header' do
+    statement = "date || credit || debit || balance\n18/05/2020 || 100.00 ||  || 200.00\n20/05/2020 ||  || 300.00 || 200.00"
+
+    transaction_one = double(:transaction)
+    allow(transaction_one).to receive_messages(date: '18/05/2020', credit: '100.00', debit: nil, balance: '200.00')
+
+    transaction_two = double(:transaction)
+    allow(transaction_two).to receive_messages(date: '20/05/2020', credit: nil, debit: '300.00', balance: '200.00')
+
+    transactions = [transaction_one, transaction_two]
+
+    expect { subject.print_statement(transactions) }.to output(statement).to_stdout
   end
 
 end
