@@ -4,7 +4,7 @@ require 'transaction'
 describe Account do
   today = Time.now.strftime('%d/%m/%Y')
 
-  it 'can be created with initial balance of £0.00' do
+  it 'account has a balance of 0 when created' do
     account = Account.new
     expect(account.balance).to eq 0
   end
