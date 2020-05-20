@@ -20,12 +20,23 @@ The aim of the project is to produce the best code that I can without a strict t
   rspec
 ```
 
+```bash
+  rubocop
+```
+
 ### Run program
 
+Run IRB
 ```bash
   irb
-  require './lib/account'
 ```
+
+Once in IRB
+```bash
+  require './lib/account'
+  account = Account.new
+```
+
 ![use](docs/output.png)
 ## Requirements
 
