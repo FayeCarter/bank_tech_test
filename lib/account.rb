@@ -5,10 +5,11 @@ class Account
 
   attr_reader :balance, :transaction_history
 
-  def initialize(transaction = Transaction)
+  def initialize(transaction = Transaction, statement = Statement)
     @balance = 0
     @transaction_history = []
     @transaction = transaction
+    @statement = statement.new
   end
 
   def deposit(value)
@@ -24,8 +25,7 @@ class Account
   end
 
   def print_statement
-    statement = Statement.new
-    statement.print_statement(@transaction_history)
+    @statement.print_statement(@transaction_history)
   end
 
   private
