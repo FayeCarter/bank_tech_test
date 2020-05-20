@@ -12,27 +12,31 @@ describe Account do
       expect(subject.deposit(5)).to eq "Balance: 5.00"
     end
 
-    it 'depositing twice ruturns a balance of both deposits' do
+    it 'increases account transaction_history' do
       subject.deposit(5)
-      expect(subject.deposit(25)).to eq "Balance: 30.00"
+      expect(subject.transaction_history).to_not be_empty
+    end
+
+    it 'creates a transaction' do
+      subject.deposit(5)
+      expect(subject.transaction_history[0]).to be_a Transaction
     end
   end
 
   describe "#withdraw" do
-    it 'returns the decreased balance' do
+    it 'withdrawing 5 returns a negative balance' do
       expect(subject.withdraw(5)).to eq "Balance: -5.00"
     end
 
     it 'increases account transaction_history' do
       subject.withdraw(5)
-      expect(subject.transaction_history.length).to eq 1
+      expect(subject.transaction_history).to_not be_empty
     end
 
     it 'creates a transaction' do
       subject.withdraw(5)
       expect(subject.transaction_history[0]).to be_a Transaction
     end
-
   end
 
   describe "#print_statement" do
