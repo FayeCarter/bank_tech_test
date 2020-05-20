@@ -3,7 +3,6 @@ require 'transaction'
 describe Transaction do 
 
   today = Time.now.strftime('%d/%m/%Y')
-  subject(:transaction) { described_class.new(balance: 100) } 
 
   it 'has a todays date by default' do
     transaction = Transaction.new(balance: 100)
@@ -30,13 +29,6 @@ describe Transaction do
     it 'transaction can be initialized with credit' do
       transaction = Transaction.new(balance: 100, credit: 5)
       expect(transaction.credit).to eq format("%<balance>.2f", balance: 5)
-      expect(transaction.debit).to eq nil
-      expect(transaction.balance).to eq format("%<balance>.2f", balance: 100)
-    end
-
-    it 'increases the balance' do
-      transaction = Transaction.new(balance: 100, credit: 5)
-      expect(transaction.balance).to eq format("%<balance>.2f", balance: 100)
     end
 
     it 'credit value is a float with 2 decimal places' do
@@ -49,15 +41,7 @@ describe Transaction do
 
     it 'transaction can be initialized with debit' do
       transaction = Transaction.new(balance: 100, debit: 5)
-      expect(transaction.credit).to eq nil
       expect(transaction.debit).to  eq format("%<debit>.2f", debit: 5)
-      expect(transaction.balance).to eq format("%<balance>.2f", balance: 100)
-    end
-
-    it 'decreases the balance' do
-      transaction = Transaction.new(balance: 100, debit: 5)
-
-      expect(transaction.balance).to eq format("%<balance>.2f", balance: 100)
     end
 
     it 'debit value is a float with 2 decimal places' do
