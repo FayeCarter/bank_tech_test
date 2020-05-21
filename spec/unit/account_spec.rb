@@ -11,7 +11,7 @@ describe Account do
       expect(subject.deposit(5)).to eq "Balance: 5.00"
     end
 
-    it 'adds to the transaction_history' do
+    it 'adds a record to the transaction_history' do
       subject.deposit(5)
       expect(subject.transaction_history).to_not be_empty
     end
@@ -31,7 +31,7 @@ describe Account do
       expect(subject.withdraw(5)).to eq "Balance: -5.00"
     end
 
-    it 'increases the transaction_history' do
+    it 'adds a record to the transaction_history' do
       subject.withdraw(5)
       expect(subject.transaction_history).to_not be_empty
     end
@@ -47,7 +47,7 @@ describe Account do
   end
 
   describe "#print_statement" do
-    it 'to use statement class' do
+    it 'uses the statement class' do
       account_statement = double(:statement)
       statement_class = double(:statement_class, new: account_statement)
       account = described_class.new(statement: statement_class)
