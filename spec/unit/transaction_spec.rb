@@ -1,6 +1,6 @@
 require 'transaction'
 
-describe Transaction do 
+xdescribe Transaction do 
   it 'uses "Time" to add date to statement' do
     today = Time.now.strftime('%d/%m/%Y')
     transaction = Transaction.new(balance: 100)

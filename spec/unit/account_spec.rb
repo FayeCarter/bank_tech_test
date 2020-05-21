@@ -25,6 +25,18 @@ describe 'Account' do
       expect(transaction).to receive(:new)
       account.deposit(5)
     end
+
+    it 'stores a transaction using the history class' do
+      transaction = double(:transaction)
+      history = double(:history)
+      history_class = double(:history_class, new: history)
+      allow(history).to receive(:record).with(transaction)
+      allow(history_class).to receive(:new).with(history)
+      account = Account.new(history: history_class)
+
+      expect(history).to receive(:record)
+      account.deposit(5)
+    end
   end
 
   describe "#withdraw" do
