@@ -1,79 +1,59 @@
 require 'account'
-require 'transaction'
 
 describe Account do
-  subject(:account) { described_class.new } 
-  today = Time.now.strftime('%d/%m/%Y')
 
-  it 'can be created with initial balance of £0.00' do
-    expect(account.balance).to eq 0
-  end
-
-  it 'transactions should be added in reverse chronological order' do
-    account.deposit(5.00)
-    expect(account.balance).to eq 5
-    account.withdraw(5.00)
-    expect(account.balance).to eq 0
-    expect(account.transaction_history[0].balance).to eq format("%<balance>.2f", balance: 0)
+  it 'account has a balance of 0 when created' do
+    expect(subject.balance).to eq 0
   end
 
   describe "#deposit" do
-    it 'increases the balance' do
-      account.deposit(5.00)
-      expect(account.balance).to eq 5
+    it 'depositing 5 returns a balance of 5.00' do
+      expect(subject.deposit(5)).to eq "Balance: 5.00"
     end
 
-    it 'increases account transaction_history' do
-      account.deposit(5.00)
-      expect(account.transaction_history.length).to eq 1
+    it 'adds a record to the transaction_history' do
+      subject.deposit(5)
+      expect(subject.transaction_history).to_not be_empty
     end
 
-    it 'creates a transaction' do
-      account.deposit(5.00)
-      expect(account.transaction_history[0]).to be_a Transaction
-    end
+    it 'uses the transaction class' do
+      transaction = double(:transaction)
+      allow(transaction).to receive(:new).with(balance: 5, credit: 5, debit: nil)
+      account = described_class.new(transaction: transaction)
 
-    it 'can be passed with a date' do
-      account.deposit(5.00, "07/04/1990")
-      expect(account.transaction_history[0].date).to eq "07/04/1990"
+      expect(transaction).to receive(:new)
+      account.deposit(5)
     end
   end
 
   describe "#withdraw" do
-    it 'decreases the balance' do
-      account.deposit(25.00)
-      account.withdraw(5.00)
-      expect(account.balance).to eq 20
+    it 'withdrawing 5 returns a negative balance of -5.00' do
+      expect(subject.withdraw(5)).to eq "Balance: -5.00"
     end
 
-    it 'increases account transaction_history' do
-      account.withdraw(5.00)
-      expect(account.transaction_history.length).to eq 1
+    it 'adds a record to the transaction_history' do
+      subject.withdraw(5)
+      expect(subject.transaction_history).to_not be_empty
     end
 
-    it 'creates a transaction' do
-      account.withdraw(5.00)
-      expect(account.transaction_history[0]).to be_a Transaction
-    end
+    it 'uses the transaction class' do
+      transaction = double(:transaction, new: "new transaction")
+      allow(transaction).to receive(:new).with(balance: -5, credit: nil, debit: 5)
+      account = described_class.new(transaction: transaction)
 
-    it 'can be passed with a date' do
-      account.withdraw(5.00, "07/04/1990")
-      expect(account.transaction_history[0].date).to eq "07/04/1990"
+      expect(transaction).to receive(:new)
+      account.withdraw(5)
     end
   end
 
   describe "#print_statement" do
-    it 'returns an empty statement for a new account' do
-      expect { account.print_statement }.to output(
-        "date || credit || debit || balance"
-      ).to_stdout
-    end
-
-    it 'returns credit history when deposit is made' do
-      account.deposit(5.00)
-      expect { account.print_statement }.to output(
-        "date || credit || debit || balance\n#{today} || 5.00 ||  || 5.00"
-      ).to_stdout
+    it 'uses the statement class' do
+      account_statement = double(:statement)
+      statement_class = double(:statement_class, new: account_statement)
+      account = described_class.new(statement: statement_class)
+      
+      expect(account_statement).to receive(:create)
+      account.print_statement
     end
   end
 end
