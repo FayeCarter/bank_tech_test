@@ -7,7 +7,8 @@ describe Statement do
   end
 
   it 'When given a transaction, #create prints the transaction underneath the header' do
-    statement = "date || credit || debit || balance\n18/05/2020 || 100.00 || || 200.00 "
+    statement = "date || credit || debit || balance"\
+                "\n18/05/2020 || 100.00 || || 200.00 "
     transaction = double(:transaction)
     allow(transaction).to receive_messages(date: '18/05/2020', credit: '100.00 ', debit: nil, balance: '200.00 ')
 
@@ -15,7 +16,9 @@ describe Statement do
   end
 
   it 'When given two transactions, #create prints each of them on a new line underneath the header' do
-    statement = "date || credit || debit || balance\n18/05/2020 || 100.00 || || 200.00 \n20/05/2020 || || 300.00 || 200.00 "
+    statement = "date || credit || debit || balance"\
+                "\n18/05/2020 || 100.00 || || 200.00 "\
+                "\n20/05/2020 || || 300.00 || 200.00 "
 
     transaction_one = double(:transaction)
     allow(transaction_one).to receive_messages(date: '18/05/2020', credit: '100.00 ', debit: nil, balance: '200.00 ')
