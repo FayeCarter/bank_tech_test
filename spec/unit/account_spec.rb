@@ -52,7 +52,7 @@ describe Account do
       statement_class = double(:statement_class, new: account_statement)
       account = described_class.new(statement: statement_class)
       
-      expect(account_statement).to receive(:print_statement)
+      expect(account_statement).to receive(:create)
       account.print_statement
     end
   end

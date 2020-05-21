@@ -1,8 +1,6 @@
 require 'transaction'
 
 describe Transaction do 
-
-  
   it 'has a todays date by default' do
     today = Time.now.strftime('%d/%m/%Y')
     transaction = Transaction.new(balance: 100)

@@ -4,7 +4,7 @@ describe Statement do
 
   it 'prints column header' do
     empty_statement = "date || credit || debit || balance"
-    expect { subject.print_statement() }.to output(empty_statement).to_stdout
+    expect { subject.create() }.to output(empty_statement).to_stdout
   end
 
   it 'When given a transaction, it prints it underneath the header' do
@@ -12,7 +12,7 @@ describe Statement do
     transaction = double(:transaction)
     allow(transaction).to receive_messages(date: '18/05/2020', credit: '100.00 ', debit: nil, balance: '200.00 ')
 
-    expect { subject.print_statement([transaction]) }.to output(statement).to_stdout
+    expect { subject.create([transaction]) }.to output(statement).to_stdout
   end
 
   it 'When given two transactions, it prints each of them on a new line underneath the header' do
@@ -26,7 +26,7 @@ describe Statement do
 
     transactions = [transaction_one, transaction_two]
 
-    expect { subject.print_statement(transactions) }.to output(statement).to_stdout
+    expect { subject.create(transactions) }.to output(statement).to_stdout
   end
 
 end
