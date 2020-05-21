@@ -1,7 +1,7 @@
 require 'transaction'
 
 describe Transaction do 
-  it 'has a todays date by default' do
+  it 'uses "Time" to add date to statement' do
     today = Time.now.strftime('%d/%m/%Y')
     transaction = Transaction.new(balance: 100)
 
