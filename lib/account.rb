@@ -7,7 +7,7 @@ class Account
   def initialize(transaction: Transaction, statement: Statement)
     @balance = 0
     @transaction_history = []
-    @transaction = transaction
+    @transaction_class = transaction
     @statement = statement.new
   end
 
@@ -35,7 +35,7 @@ class Account
   end
 
   def handle_transaction(debit: nil, credit: nil)
-    transaction = @transaction.new(balance: @balance, debit: debit, credit: credit)
+    transaction = @transaction_class.new(balance: @balance, debit: debit, credit: credit)
     transaction_history.insert(0, transaction)
   end
 end
