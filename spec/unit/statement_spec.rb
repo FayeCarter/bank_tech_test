@@ -1,6 +1,6 @@
 require 'statement'
 
-xdescribe Statement do
+describe Statement do
   it '#create method reveals statement header when no transactions are passed to it' do
     expectation = "date || credit || debit || balance"
     expect { subject.create() }.to output(expectation).to_stdout

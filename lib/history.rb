@@ -5,7 +5,7 @@ class History
   end
 
   def record(transaction)
-    @transactions << transaction
+    @transactions.insert(0, transaction)
   end
 
   def show

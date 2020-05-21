@@ -1,5 +1,6 @@
 require_relative 'transaction'
 require_relative 'statement'
+require_relative 'history'
 
 class Account
 
@@ -23,7 +24,8 @@ class Account
   end
 
   def print_statement
-    @statement.create(@transaction_history)
+    transactions = @transaction_history.show
+    @statement.create(transactions)
   end
 
   private
