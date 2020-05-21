@@ -11,12 +11,6 @@ describe 'Account' do
       expect(call).to eq expection
     end
 
-    it 'adds a record to the transaction_history' do
-      account = Account.new
-      account.deposit(5)
-      expect(account.transaction_history).to_not be_empty
-    end
-
     it 'uses the transaction class' do
       transaction = double(:transaction)
       allow(transaction).to receive(:new).with(balance: 5, credit: 5, debit: nil)
@@ -26,7 +20,7 @@ describe 'Account' do
       account.deposit(5)
     end
 
-    it 'stores a transaction using the history class' do
+    it 'stores a deposit using the history class' do
       transaction = double(:transaction)
       history = double(:history)
       history_class = double(:history_class, new: history)
@@ -48,18 +42,24 @@ describe 'Account' do
       expect(call).to eq expection
     end
 
-    it 'adds a record to the transaction_history' do
-      account = Account.new
-      account.withdraw(5)
-      expect(account.transaction_history).to_not be_empty
-    end
-
     it 'uses the transaction class' do
       transaction = double(:transaction, new: "new transaction")
       allow(transaction).to receive(:new).with(balance: -5, credit: nil, debit: 5)
       account = Account.new(transaction: transaction)
 
       expect(transaction).to receive(:new)
+      account.withdraw(5)
+    end
+
+    it 'stores a withdrawl using the history class' do
+      transaction = double(:transaction)
+      history = double(:history)
+      history_class = double(:history_class, new: history)
+      allow(history).to receive(:record).with(transaction)
+      allow(history_class).to receive(:new).with(history)
+      account = Account.new(history: history_class)
+
+      expect(history).to receive(:record)
       account.withdraw(5)
     end
   end
