@@ -14,7 +14,7 @@ describe Statement do
     expect { subject.create([transaction]) }.to output(statement).to_stdout
   end
 
-  it 'When given two transactions, #create prints prints each of them on a new line underneath the header' do
+  it 'When given two transactions, #create prints each of them on a new line underneath the header' do
     statement = "date || credit || debit || balance\n18/05/2020 || 100.00 || || 200.00 \n20/05/2020 || || 300.00 || 200.00 "
 
     transaction_one = double(:transaction)
