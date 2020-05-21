@@ -1,9 +1,12 @@
 class Statement
+
+  STATAMENT_HEADER = "date || credit || debit || balance"
+
   def create(transactions = nil)
-    display = "date || credit || debit || balance"
+    display = ""
     transactions&.each { |row|
       display << "\n#{row.date} || #{row.credit}|| #{row.debit}|| #{row.balance}"        
     }
-    print display
+    print Statement::STATAMENT_HEADER + display
   end
 end
