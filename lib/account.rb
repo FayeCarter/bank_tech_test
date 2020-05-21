@@ -35,7 +35,10 @@ class Account
     "Balance: #{new_balance}"
   end
 
-  def handle_transaction(debit: nil, credit: nil)
+  def handle_transaction(options = {})
+    credit = options[:credit]
+    debit = options[:debit]
+    
     transaction = @transaction_class.new(balance: @balance, debit: debit, credit: credit)
     @transaction_history.record(transaction)
   end
