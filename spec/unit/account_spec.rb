@@ -2,10 +2,6 @@ require 'account'
 
 describe Account do
 
-  it 'account has a balance of 0 when created' do
-    expect(subject.balance).to eq 0
-  end
-
   describe "#deposit" do
     it 'depositing 5 returns a balance of 5.00' do
       expect(subject.deposit(5)).to eq "Balance: 5.00"
