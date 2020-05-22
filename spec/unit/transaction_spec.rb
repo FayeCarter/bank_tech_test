@@ -1,11 +1,12 @@
 require 'transaction'
 
 describe Transaction do 
-  it 'has a todays date by default' do
-    today = Time.now.strftime('%d/%m/%Y')
+  it 'uses "Time" to add date to statement' do
+    date = Time.new(2012, 1, 10)
+    allow(Time).to receive_message_chain(:now, :strftime).and_return(date)
     transaction = Transaction.new(balance: 100)
 
-    expect(transaction.date).to eq today
+    expect(transaction.date).to eq date
   end
 
   it 'creates a credit value' do

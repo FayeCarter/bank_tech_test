@@ -4,14 +4,14 @@ class Transaction
 
   def initialize(credit: nil, debit: nil, balance:)
     @date = Time.now.strftime('%d/%m/%Y')
-    @credit = float(credit)
-    @debit = float(debit)
-    @balance = float(balance)
+    @credit = to_currency(credit)
+    @debit = to_currency(debit)
+    @balance = to_currency(balance)
   end
 
   private
 
-  def float(value)
+  def to_currency(value)
     return value.nil? ? value : format("%<value>.2f ", value: value)
   end
 

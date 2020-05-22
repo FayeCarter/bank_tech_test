@@ -1,30 +1,31 @@
 require_relative 'transaction'
 require_relative 'statement'
+require_relative 'history'
 
 class Account
-  attr_reader :balance, :transaction_history
 
-  def initialize(transaction: Transaction, statement: Statement)
+  def initialize(transaction: Transaction, statement: Statement, history: History)
     @balance = 0
-    @transaction_history = []
-    @transaction = transaction
+    @transaction_history = history.new
+    @transaction_class = transaction
     @statement = statement.new
   end
 
   def deposit(value)
     @balance += value
     handle_transaction(credit: value)
-    show_balance(balance)
+    show_balance(@balance)
   end
 
   def withdraw(value)
     @balance -= value
     handle_transaction(debit: value)    
-    show_balance(balance)
+    show_balance(@balance)
   end
 
   def print_statement
-    @statement.create(transaction_history)
+    transactions = @transaction_history.show
+    @statement.create(transactions)
   end
 
   private
@@ -34,8 +35,11 @@ class Account
     "Balance: #{new_balance}"
   end
 
-  def handle_transaction(debit: nil, credit: nil)
-    transaction = @transaction.new(balance: balance, debit: debit, credit: credit)
-    transaction_history.insert(0, transaction)
+  def handle_transaction(options = {})
+    credit = options[:credit]
+    debit = options[:debit]
+    
+    transaction = @transaction_class.new(balance: @balance, debit: debit, credit: credit)
+    @transaction_history.record(transaction)
   end
 end
